@@ -46,7 +46,7 @@ struct Semver {
             if copySelf.patch < 9 {
                 copySelf.patch += 1
             } else {
-                if minor < 9 {
+                if copySelf.minor < 9 {
                     copySelf.minor += 1
                     copySelf.patch = 0
                 } else {
