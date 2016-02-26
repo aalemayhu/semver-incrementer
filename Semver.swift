@@ -16,6 +16,10 @@ struct Semver {
         return "The current version is \(major).\(minor).\(patch)"
     }
 
+    var short: String {
+        return "\(major).\(minor).\(patch)"
+    }
+
     mutating func incrementInPlace(by: Int = 1) {
         var i = 0
         repeat {
