@@ -16,7 +16,7 @@ struct Semver {
         return "The current version is \(major).\(minor).\(patch)"
     }
 
-    mutating func increment(by: Int = 1) {
+    mutating func incrementInPlace(by: Int = 1) {
         var i = 0
         repeat {
             i += 1
@@ -32,6 +32,26 @@ struct Semver {
                 }
             }
         } while i < by
+    }
+
+    func increment(by: Int = 1) -> Semver {
+        var copySelf = self
+        var i = 0
+        repeat {
+            i += 1
+            if copySelf.patch < 9 {
+                copySelf.patch += 1
+            } else {
+                if minor < 9 {
+                    copySelf.minor += 1
+                    copySelf.patch = 0
+                } else {
+                    copySelf.major += 1
+                    copySelf.minor = 0
+                }
+            }
+        } while i < by
+        return copySelf
     }
 
     static func fromString(str: String) -> Semver? {
