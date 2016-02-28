@@ -3,7 +3,7 @@ import Foundation
 struct TaskHelper {
   let task: NSTask
     init(launchPath: String, args: [String]) {
-      self.task = NSTask()
+        self.task = NSTask()
         self.task.launchPath = launchPath
         self.task.arguments = args
     }
@@ -12,14 +12,15 @@ struct TaskHelper {
     let pipe = NSPipe()
       task.standardOutput = pipe
       task.launch()
-
+      task.waitUntilExit()
+      
       let data = pipe.fileHandleForReading.readDataToEndOfFile()
       let output = NSString(data: data, encoding: NSUTF8StringEncoding)
       return output
   }
 
   func getReturn() -> Int32 {
-    task.launch()
+      task.launch()
       task.waitUntilExit()
       return task.terminationStatus
   }
