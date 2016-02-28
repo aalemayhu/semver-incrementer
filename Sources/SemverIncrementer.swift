@@ -10,7 +10,6 @@ class SemverIncrementer {
             return
         }
         useInput(args)
-        exit(0)
     }
 
     func useInput(args: [String]) {
