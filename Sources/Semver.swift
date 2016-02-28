@@ -2,16 +2,16 @@ struct Semver {
     var major: Int
     var minor: Int
     var patch: Int
-
-
+    
+    
     var description: String {
         return "The current version is \(major).\(minor).\(patch)"
     }
-
+    
     var short: String {
         return "\(major).\(minor).\(patch)"
     }
-
+    
     mutating func incrementInPlace(by: Int = 1) {
         var i = 0
         repeat {
@@ -29,13 +29,13 @@ struct Semver {
             }
         } while i < by
     }
-
+    
     func increment(by: Int = 1) -> Semver {
         var copySelf = self
         copySelf.incrementInPlace(by)
         return copySelf
     }
-
+    
     static func fromString(str: String) -> Semver? {
         let splitted = str.characters.split { $0 == "."}.map(String.init)
         if splitted.count > 2 {
