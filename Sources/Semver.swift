@@ -1,11 +1,3 @@
-//
-//  Semver.swift
-//  semver-incrementer
-//
-//  Created by Alexander Alemayhu on 26/02/16.
-//  Copyright © 2016 A. Alemayhu. All rights reserved.
-//
-
 struct Semver {
     var major: Int
     var minor: Int
