@@ -5,6 +5,9 @@ class SemverIncrementer {
   }
 
   func run(args: [String]) {
+
+
+      //TODO: refactor the lines below out
       guard args.count > 2 else {
           usage()
           return
