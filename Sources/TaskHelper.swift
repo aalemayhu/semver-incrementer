@@ -15,7 +15,7 @@ struct TaskHelper {
 
       let data = pipe.fileHandleForReading.readDataToEndOfFile()
       let output = NSString(data: data, encoding: NSUTF8StringEncoding)
-      return output as? String
+      return output
   }
 
   func getReturn() -> Int32 {
