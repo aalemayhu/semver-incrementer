@@ -40,21 +40,7 @@ struct Semver {
 
     func increment(by: Int = 1) -> Semver {
         var copySelf = self
-        var i = 0
-        repeat {
-            i += 1
-            if copySelf.patch < 9 {
-                copySelf.patch += 1
-            } else {
-                if copySelf.minor < 9 {
-                    copySelf.minor += 1
-                    copySelf.patch = 0
-                } else {
-                    copySelf.major += 1
-                    copySelf.minor = 0
-                }
-            }
-        } while i < by
+        copySelf.incrementInPlace(by)
         return copySelf
     }
 
