@@ -4,7 +4,7 @@ struct Git {
     let path: String
     
     init?(path: String) {
-        guard TaskHelper(launchPath: path, args: ["status"]).getReturn() == 0 else {
+        guard TaskHelper(launchPath: path, args: ["branch", "-v", "-v"]).getReturn() == 0 else {
             return nil
         }
         self.path = path
