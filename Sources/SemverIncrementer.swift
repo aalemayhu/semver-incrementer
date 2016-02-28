@@ -13,10 +13,10 @@ class SemverIncrementer {
     }
 
     func useInput(args: [String]) {
-        describe(args[1], incrementBy: args[2])
+        printFutureVersion(args[1], incrementBy: args[2])
     }
 
-    func describe(originVersion: String, incrementBy: String) {
+    func printFutureVersion(originVersion: String, incrementBy: String) {
         guard let version = Semver.fromString(originVersion.trim()) else {
             print("error:\(originVersion):not a valid version")
             return
@@ -38,6 +38,6 @@ class SemverIncrementer {
             print("error: no version")
             return
         }
-        describe(version, incrementBy: "1")
+        printFutureVersion(version, incrementBy: "1")
     }
 }
