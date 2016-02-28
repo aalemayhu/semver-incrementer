@@ -1,3 +1,4 @@
 .build
 semver-incrementer
 *.swp
+.DS_Store
