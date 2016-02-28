@@ -8,7 +8,7 @@ struct TaskHelper {
         self.task.arguments = args
     }
 
-  func performTask() -> String? {
+  func performTask() -> NSString? {
     let pipe = NSPipe()
       task.standardOutput = pipe
       task.launch()

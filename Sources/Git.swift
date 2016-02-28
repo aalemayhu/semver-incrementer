@@ -10,7 +10,7 @@ struct Git {
         self.path = path
     }
     
-    var lastTag: String? {
+    var lastTag: NSString? {
         let task = TaskHelper(launchPath: path, args: ["describe", "--tags"])
         return task.performTask()
     }

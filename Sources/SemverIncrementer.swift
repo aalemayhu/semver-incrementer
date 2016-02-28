@@ -34,7 +34,7 @@ class SemverIncrementer {
             usage()
             return
         }
-        guard let version = git.lastTag else {
+        guard let version = git.lastTag as? String else {
             print("error: no version")
             return
         }
