@@ -5,7 +5,7 @@ all:
 	swift build
 
 osx:
-	swiftc Sources/*.swift -o semver-incrementer
+	xcrun -sdk macosx swiftc Sources/*.swift -o semver-incrementer
 
 install:
 	chmod +x $(FILES)
