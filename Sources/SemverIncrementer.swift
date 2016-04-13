@@ -9,15 +9,15 @@ class SemverIncrementer {
             useGit()
             return
         }
-        useInput(args)
+        useInput(args: args)
     }
 
     func useInput(args: [String]) {
-        printFutureVersion(args[1], incrementBy: args[2])
+        printFutureVersion(originVersion: args[1], incrementBy: args[2])
     }
 
     func printFutureVersion(originVersion: String, incrementBy: String) {
-        guard let version = Semver.fromString(originVersion.trim()) else {
+        guard let version = Semver.fromString(str: originVersion.trim()) else {
             print("error:\(originVersion):not a valid version")
             return
         }
@@ -26,7 +26,7 @@ class SemverIncrementer {
             print("error:\(incrementBy) is not a valid increment value")
             return
         }
-        print(version.increment(by).short)
+        print(version.increment(by: by).short)
     }
 
     func useGit() {
@@ -38,6 +38,6 @@ class SemverIncrementer {
             print("error: no version")
             return
         }
-        printFutureVersion(version, incrementBy: "1")
+        printFutureVersion(originVersion: version, incrementBy: "1")
     }
 }

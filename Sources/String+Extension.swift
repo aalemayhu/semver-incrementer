@@ -2,7 +2,8 @@ import Foundation
 
 extension String {
     func trim() -> String {
-        let characterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-        return self.stringByTrimmingCharactersInSet(characterSet)
+        
+        let characterSet = NSCharacterSet.whitespacesAndNewlines()
+        return self.trimmingCharacters(in: characterSet)
     }
 }

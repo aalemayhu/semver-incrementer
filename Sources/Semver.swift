@@ -32,7 +32,7 @@ struct Semver {
     
     func increment(by: Int = 1) -> Semver {
         var copySelf = self
-        copySelf.incrementInPlace(by)
+        copySelf.incrementInPlace(by: by)
         return copySelf
     }
     
